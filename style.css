@@ -1,0 +1,44 @@
+body {
+  background-color: pink;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  padding: 30px;
+}
+
+.card {
+  border: 1px dotted black;
+  text-align: center;
+  font-family: 'Bitter', serif;
+  padding: 10px;
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  background-color: bisque;
+}
+
+h4 {
+  color: chocolate;
+  border: 1px solid cornsilk;
+  box-shadow: 10px 10px 10px cornsilk;
+}
+
+p {
+  font-size: 0.8em;
+}
+.dogTable{
+  font-size: 7pt;
+  display: flex;
+  
+}
+
+table, th, td
+{
+  border: 1px solid black;
+  
+}
