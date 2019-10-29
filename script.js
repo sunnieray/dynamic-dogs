@@ -1,7 +1,9 @@
 const dogArray = [
   {
       id: 0,
+      img: "images/boxer.jpg",
       name: "Pumper",
+      pronoun: "She",
       breed: "boxer",
       size: "medium",
       color: "brown",
@@ -15,7 +17,9 @@ const dogArray = [
   },
   {
       id: 1,
+      img: "images/bullterrier.jpeg",
       name: "Jerry",
+      pronoun: "She",
       breed: "terrier",
       size: "small",
       color: "green",
@@ -29,7 +33,9 @@ const dogArray = [
   },
   {
       id: 2,
+      img: "images/poodle.jpeg",
       name: "Curly",
+      pronoun: "He",
       breed: "poodle",
       size: "large",
       color: "black",
@@ -43,7 +49,9 @@ const dogArray = [
   },
   {
       id: 3,
+      img: "images/lab.jpeg",
       name: "Disco",
+      pronoun: "She",
       breed: "lab",
       size: "big",
       color: "black",
@@ -57,7 +65,9 @@ const dogArray = [
   },
   {
       id: 4,
+      img: "images/bull.jpg",
       name: "Toro",
+      pronoun: "He",
       breed: "bull mastiff",
       size: "huge",
       color: "brown",
@@ -71,7 +81,9 @@ const dogArray = [
   },
   {
       id: 5,
+      img: "images/bullterrier.jpeg",
       name: "Ivy",
+      pronoun: "She",
       breed: "stafford bull terrier",
       size: "medium",
       color: "yellow",
@@ -85,7 +97,9 @@ const dogArray = [
   },
   {
       id: 6,
+      img: "images/americaneskimo.jpeg",
       name: "Biscuit",
+      pronoun: "She",
       breed: "american eskimo",
       size: "medium",
       color: "white",
@@ -99,7 +113,9 @@ const dogArray = [
   },
   {
       id: 7,
+      img: "images/pomsky.jpeg",
       name: "Bunny",
+      pronoun: "She",
       breed: "pomsky",
       size: "small",
       color: "black triad",
@@ -113,7 +129,9 @@ const dogArray = [
   },
   {
       id: 8,
+      img: "images/goldenretriever.jpeg",
       name: "Spice",
+      pronoun: "He",
       breed: "golden retriever",
       size: "medium",
       color: "brown",
@@ -127,7 +145,9 @@ const dogArray = [
   },
   {
       id: 9,
+      img: "images/germansheppard.jpeg",
       name: "Kyzer",
+      pronoun: "He",
       breed: "german sheppard",
       size: "large",
       color: "black",
@@ -141,7 +161,9 @@ const dogArray = [
   },
   {
       id: 10,
+      img: "images/schnauzer.jpeg",
       name: "Gonzo",
+      pronoun: "She",
       breed: "schnauzer",
       size: "small",
       color: "black and white",
@@ -155,7 +177,9 @@ const dogArray = [
   },
   {
       id: 11,
+      img: "images/daisy.jpeg",
       name: "Daisy",
+      pronoun: "He",
       breed: "golden retriever",
       size: "medium",
       color: "golden",
@@ -169,62 +193,66 @@ const dogArray = [
   }
 ];
 
-
+console.log("dog array", dogArray);
 
 let dogDiv = document.getElementById('dogs');
 
 //for loop with counter, limit, increment
-for(var counter = 0; counter < dogArray.length; counter++)
-{
-
-  //variables for header and paragrapgh
-  var dogName = dogArray[counter].name;
-  var dogBreed = dogArray[counter].breed;
-  var dogSize = dogArray[counter].size;
-  var dogColor = dogArray[counter].color;
-  var dogAge = dogArray[counter].age;
-  var dogId = dogArray[counter].id;
+for(var counter = 0; counter < dogArray.length; counter++) {
   
+  var dogOfMoment = dogArray[counter];
+
+  //variables for header and paragraph
+  var dogName = dogOfMoment.name;
+  var dogBreed = dogOfMoment.breed;
+  var dogSize = dogOfMoment.size;
+  var dogColor = dogOfMoment.color;
+  var dogAge = dogOfMoment.age;
+  var dogId = dogOfMoment.id;
+  var dogPronoun = dogOfMoment.pronoun;
+  var dogImg = dogOfMoment.img;
+
+
   //variables for dog needs
-  var dogToy = dogArray[counter].needs.toys.join(" , ");
-  var dogShelter = dogArray[counter].needs.shelter;
-  var dogMedication = dogArray[counter].needs.medications;
+  var dogShelter = dogOfMoment.needs.shelter;
+  var dogFood = dogOfMoment.needs.cupsOfFood;
+  
+  var dogMedication = dogOfMoment.needs.medication;
+ 
   if(dogMedication == true) {
-    dogMedication ="needs Medz"
+      dogMedication = "needs medz";
   } else {
-    dogMedication ="dog is young and healthy"
+      dogMedication = "young and healthy";
   }
-  var dogFood = dogArray[counter].needs.cupsOfFood;
+
+  var dogToys = dogOfMoment.needs.toys.join(", ");
+
 
   //variables holding dynamic elements
-  var dogHeader = `<h4>${dogName}</h4>`;
-  var dogDescription = "";
-  var dogNeedsTable = "";
-//needs table used mozilla to build
-var dogsNeedsTable =
-`<table class="dogTable">
-    <tr><th colspan="4">Needs</th></tr>
-    <tr>
-        <td>${dogShelter}</td>
-        <td>plays with${dogToy}</td>
-      <td>${dogMedication}</td>
-      <td>${dogFood}</td>
-    </tr>
- </table>`
 
-  //dynamic populating the dogs description
+  var dogDescription = 
+      `<p>${dogName} is a ${dogBreed} who is ${dogAge} years old. 
+      ${dogPronoun} is ${dogSize} sized and a beautiful ${dogColor} color! `;
+
+  var dogNeedsTable = 
+      `<table class="dogTable">
+      <tr><td>Housing:<td>
+      sleeps in ${dogShelter}</td></tr>
+      <tr><td>Toys:<td>
+      plays with ${dogToys}</td></tr>
+      <tr><td>Medication:<td>
+      ${dogMedication}</td></tr>
+      <tr><td>Food:<td>
+      eats ${dogFood} cups per day</td></tr>
+      </table>`;
+
+  //dynamically populating the description
   if( dogId == 5)
   {
-      dogDescription = 
-          `<p>${dogName} is a ${dogBreed} who is ${dogAge} years old. 
-          ${dogName} is ${dogSize} sized and a beautiful ${dogColor} color!
-          ${dogName} is the very berry best doggo!</p>`;
+      dogDescription += `${dogName} is the very berry best doggo!</p>`;
   } else {
-      dogDescription = 
-          `<p>${dogName} is a ${dogBreed} who is ${dogAge} years old. 
-          ${dogName} is ${dogSize} sized and a beautiful ${dogColor} color!
-          ${dogName} is a good doggo!</p>`;
+      dogDescription += `${dogName} is a good doggo!</p>`;
   }
 
-  dogDiv.innerHTML += `<div class="card">${dogHeader} ${dogDescription}${dogsNeedsTable}</div>`;
+  dogDiv.innerHTML += `<div class="card"><img alt="${dogName}" src="${dogImg}" width=\"120px\" height=\"120px\"><h4>${dogName}</h4>${dogDescription}${dogNeedsTable}</div>`;
 }

@@ -1,44 +1,68 @@
 body {
-  background-color: pink;
+  background-color:lavenderblush;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+h1 {
+font-size: 30pt;
+color: pink;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   align-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 80%;
-  padding: 30px;
+  padding: 30px 30px 30px 30px;
 }
 
 .card {
-  border: 1px dotted black;
+  border: 1px solid lavender;
   text-align: center;
+  border-radius: 10px 10px 10px 10px;
   font-family: 'Bitter', serif;
   padding: 10px;
-  width: 200px;
-  height: 300px;
+  width: 350px;
+  height: 500px;
   margin: 10px;
-  background-color: bisque;
+  background-color: lavender;
+}
+
+.card:nth-child(odd){
+background-color: white;
+}
+
+.dogTable {
+  font-size: 0.7rem;
+  width: 100%;
+  position: relative;
+  bottom:0;
+}
+
+th, td {
+  border: 1px solid pink;
+  border-radius: 10px 10px 10px 10px;
+  width: 250px;
+  height: 50px;
 }
 
 h4 {
-  color: chocolate;
-  border: 1px solid cornsilk;
-  box-shadow: 10px 10px 10px cornsilk;
+  color: pink;
+  font-size: 20pt
 }
 
+.card:active {
+border: 1px solid green;
+}
+.card:hover {
+  background-color: aqua;
+}
 p {
   font-size: 0.8em;
 }
-.dogTable{
-  font-size: 7pt;
-  display: flex;
-  
-}
 
-table, th, td
-{
-  border: 1px solid black;
-  
-}
